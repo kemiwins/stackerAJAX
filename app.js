@@ -72,8 +72,8 @@ var showAnswerer = function(tag_score) {
 							+ tag_score.user.display_name + '</a>' );
 
 	//Set the score property in result
-	var score = result.find('.score');
-	score.text(tag_score.score);
+	var score = result.find('.reputation');
+	score.text(tag_score.user.reputation);
 
 	//Set the posts property in results
 	var posts = result.find('.posts');
@@ -122,7 +122,7 @@ var getInspiration = function(answerers){
 							};
 
 	var result = $.ajax({
-		url: "http://api.stackexchange.com/2.2/tags/tags/top-answerers/all_time",
+		url: "http://api.stackexchange.com/2.2/tags/" + answerers + "/top-answerers/all_time",
 		data: request,
 		dataType: "jsonp",
 		type: "GET"
